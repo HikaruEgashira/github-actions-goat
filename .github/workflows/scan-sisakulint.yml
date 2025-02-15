@@ -17,11 +17,11 @@ jobs:
         with:
           sisakulint_version: 0.0.9
       - name: Run sisakulint
-        run: sisakulint -fix on -format "{{sarif .}}" > sisakulint.sarif || true
+        run: sisakulint -fix on -format "{{sarif .}}" > ~/sisakulint.sarif || true
       - name: Commit fix
         if: ${{ github.event_name == 'pull_request' }}
         uses: suzuki-shunsuke/commit-action@main
       - name: Upload SARIF results
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: sisakulint.sarif
+          sarif_file: ~/sisakulint.sarif
