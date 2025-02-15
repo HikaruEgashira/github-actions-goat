@@ -15,7 +15,7 @@ jobs:
       - name: Setup sisakulint
         uses: ./.github/actions/setup-sisakulint
         with:
-          sisakulint_version: 0.0.9
+          sisakulint_version: 0.1.0
       - name: Run sisakulint
         run: sisakulint -fix on -format "{{sarif .}}" > ~/sisakulint.sarif || true
       - name: Commit fix
