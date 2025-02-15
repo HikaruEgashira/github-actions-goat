@@ -7,14 +7,14 @@ inputs:
 runs:
   using: "composite"
   steps:
-    # gh release download "v0.0.9" -R ultra-supara/sisakulint -p "sisakulint_0.0.9_darwin_amd64.tar.gz"
-    # tar -xf "sisakulint_0.0.9_darwin_amd64.tar.gz"
-    # https://github.com/ultra-supara/sisakulint/releases/tag/v0.0.9
+    # gh release download "v0.1.0" -R ultra-supara/sisakulint -p "sisakulint_0.1.0_darwin_amd64.tar.gz"
+    # tar -xf "sisakulint_0.1.0_darwin_amd64.tar.gz"
+    # https://github.com/ultra-supara/sisakulint/releases/tag/v0.1.0
     - name: Download sisakulint
       shell: bash
       run: |
-        mkdir -p bin
-        cd bin
+        mkdir -p $HOME/bin
+        cd $HOME/bin
         curl -L https://github.com/ultra-supara/sisakulint/releases/download/v${SISAKULINT_VERSION}/sisakulint_${SISAKULINT_VERSION}_linux_amd64.tar.gz -o "sisakulint_${SISAKULINT_VERSION}_linux_amd64.tar.gz"
         tar -xf "sisakulint_${SISAKULINT_VERSION}_linux_amd64.tar.gz"
         chmod +x sisakulint
